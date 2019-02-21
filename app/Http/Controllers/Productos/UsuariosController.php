@@ -70,7 +70,15 @@ class UsuariosController extends Controller
      */
     public function show($id)
     {
-        //
+        $usuario = Usuario::find($id);
+        $user = $usuario;
+        return view('usuarios.example', ['user'=>$usuario]);
+        return view('usuarios.show', ['user'=>$usuario]);
+
+
+
+
+
     }
 
     /**

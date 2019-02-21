@@ -30,7 +30,7 @@
           
        
 
-        <div>
+        <div >
         <button class="btn-floating pulse" type="submit" name="action">
                  <a class="btn-floating pulse"><i class="material-icons ">add</i></a>
             </button>
@@ -39,5 +39,7 @@
     </div>
 </div>  
 </form>  
+
+
 
     @endsection

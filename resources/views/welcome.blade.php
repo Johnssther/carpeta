@@ -7,17 +7,13 @@
 
         <title>Laravel</title>
 
-        <!-- Fonts -->
+
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Materialise -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+       
 
 
-
-        <!-- Styles -->
         <style>
             ul {
                 list-style-type: none;
@@ -69,20 +65,42 @@
            <!--  <li style="float:right"><a class="active" href="#">Elisa</a></li> -->
         </ul>
     </nav>
-   <a href=" {{route('productos.index')}}  ">Ver Productos</a>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>    
 
 
             <div class="containerr">
                  @yield('content')
             </div>
+       
+
+<script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
 
 
-    
-      <!-- Compiled and minified JavaScript materialize-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
 
 
 
     </body>
 </html>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+

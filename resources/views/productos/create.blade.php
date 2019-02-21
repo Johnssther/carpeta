@@ -85,7 +85,7 @@
                     <select class="browser-default" name="personaElaboro_id" id="person" required>
                             <option value selected hidden> Seleccione Usuario </option>
                         @foreach ($usuarios as $usuario)
-                            <option value=" {{ $modelo->id }} "> {{ $usuario->name }} {{ $usuario->surname }}</option>
+                            <option value=" {{ $usuario->id }} "> {{ $usuario->name }} {{ $usuario->surname }}</option>
                         @endforeach
                     </select>
                 </div> 
