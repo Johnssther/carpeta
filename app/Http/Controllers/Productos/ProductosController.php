@@ -91,7 +91,8 @@ class ProductosController extends Controller
      */
     public function show($id)
     {
-        //
+        return 'ESTOY DESDE EL CONTROLADOR SHOW.PRODUCTOS';
+        
     }
 
     /**
@@ -102,7 +103,10 @@ class ProductosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $producto = Producto::find($id);
+        
+        return view('productos.edit', ['producto' => $producto]);
+        return 'id para editar';
     }
 
     /**
@@ -125,6 +129,15 @@ class ProductosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $id;
+        // $producto = Producto::find($id);
+        // $producto->delete();
+        // return back();
+
+
+        /* $category = Category::findOrFail($request->category_id);
+        $category->delete();
+        return back();
+ */
     }
 }
