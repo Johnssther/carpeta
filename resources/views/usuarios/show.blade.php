@@ -1,16 +1,43 @@
-
+<style>
+  .link {
+    color:white;
+  }
+</style>
 
 
 @extends('welcome')
 
     @section('content')
 
+    <div class="container">
+      <div class="row">
+        <div class="col s12 card-panel teal blue darken-2">
+        <div class="col s12 center-align">
+          <p>Generar Reportes PDF</p>
+        </div>
+        <div class="col s3">
+          <a class="link" href=" {{ route('pdf.generate.marcas') }} ">PDF Generate MARCAS</a>
+        </div>
+        <div class="col s3">
+            <a class="link" href=" {{route('pdf.generate.modelos')}} ">PDF Generate MODELOS</a>
+        </div>
+        <div class="col s3">
+        <a class="link" href="{{ route('pdf.generate.usuarios') }}">PDF Generate USUARIOS</a>
+        </div>
+        <div class="col s3">
+            <a class="link" href="{{ route('pdf.generate.productos') }}">PDF Generate PRODUCTOS</a>
+        </div>
+
+      </div>
+     </div>
+    </div>
+
 
 
     <div class="row ">
         <div class="container">
             <div class="col s12 card-panel teal lighten-5 center-align">
-              <a href=" {{route('productos.index')}}  " >Ver Productos</a>
+              <a  href=" {{route('productos.index')}}  " >Ver Productos</a>
             </div>
 
             <div class="col s4 ">
@@ -18,7 +45,7 @@
               <table>
                 <thead>
                   <tr>
-                    <th>NombreS</th>
+                    <th>Nombre</th>
                     <th>Ver</th>
                   </tr>
                 </thead>
@@ -26,10 +53,7 @@
                 @foreach ( $usuarios as $usuario )
                   <tr>
                     <td>{{ $usuario->name }}   {{ $usuario->surname }}</td>
-                    <td>  <button data-target="demo-modal" class="btn modal-trigger">Ver</button> 
-                    </td>
-                    <td>    <a class="modal-trigger" href=" {{ route('usuarios.show',['usuario' => $usuario->id])}} ">VerController</a>  </td>
-
+                    <td>    <a class="modal-trigger" href=" {{ route('usuarios.show',['usuario' => $usuario->id])}} ">Ver</a>  </td>
                   </tr>
                 @endforeach
                 </tbody>
