@@ -15,7 +15,7 @@
         </div>
         <div class="input-field col s6">
             <div>
-                Edad:
+                Apellidos:
                 <input type="text" name="surname" id="surname" value="Gomez" required>
             </div>
         </div>
@@ -40,6 +40,10 @@
 
     </div>
 </div>    
+
+
+
+
 
     @endsection
     
