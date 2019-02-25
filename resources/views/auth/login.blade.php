@@ -57,7 +57,7 @@
                                 </button><br><br>
 
                                 <a  href="{{ route('password.request') }}">
-                                    Olvide mi contraceña
+                                    Olvide mi contraseña
                                 </a>
                             </div>
                         </div>

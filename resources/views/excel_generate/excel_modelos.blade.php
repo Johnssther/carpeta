@@ -9,31 +9,42 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
  
         <style>
-       
+       table {
+           background-color: yellowgreen;
+       }
+       tr {
+           background-color: yellowgreen;
+       }
+      
     </style>
 
 </head>
 <body>
    
 <div class="container center-align">
-<h3>Modelos Registrados</h3>
     <div class="container"></div>
-          <table>
+          <table class="centered">
             <thead>
               <tr>
+                    <th colspan="3" class="center-align"><h1> Modelos Registrados</h1></th>
+
+              </tr>
+              <tr>
                   <th>#</th>
-                  <th>Nombre</th>
-                  <th>Activa</th>
+                  <th>Modelo</th>
+                  <th>Activo</th>
+
               </tr>
             </thead>
     
             <tbody>
-              @foreach ($modelos as $modelo)
+               @foreach ($modelos as $modelo)
               <tr>
                 <td> {{ $modelo->id }} </td>
                 <td> {{ $modelo->name }} </td>
                 <td> {{ $modelo->active ? 'SI' : 'NO'}} </td>
-              </tr>
+                
+              </tr> 
               @endforeach 
             </tbody>
           </table>
@@ -43,11 +54,13 @@
 
 
 
+
+	
+
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </body>
 </html>
-
-
-
-

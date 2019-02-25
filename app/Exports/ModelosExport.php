@@ -4,15 +4,19 @@ namespace App\Exports;
 
 use App\Models\Modelo;
 
-use Maatwebsite\Excel\Concerns\FromCollection;
+use App\Invoice;
 
-class ModelosExport implements FromCollection
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+
+
+class ModelosExport implements FromView, ShouldAutoSize
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    public function collection()
+    public function view(): View
     {
-        return Modelo::all();
+        return view('excel_generate.excel_modelos', [
+            'modelos' => Modelo::all()
+        ]);
     }
 }

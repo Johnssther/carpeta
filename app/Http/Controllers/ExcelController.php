@@ -33,14 +33,16 @@ class ExcelController extends Controller
     public function Generate_excel_modelos() {
 
         return Excel::download(new ModelosExport, 'Modelos.xlsx');
-
-
+        
+        
     }
-
+    
     public function Generate_excel_usuarios() {
-
+        
+        
+        
         return Excel::download(new UsuariosExport, 'Usuarios.xlsx');
-
+        return view('excel_generate.excel_usuarios', ['usuarios' => Usuario::get()]);
 
     }
 
