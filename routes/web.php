@@ -23,7 +23,11 @@ Route::group(['middleware'=>'auth'], function() {
     Route::get ('pdfgusuarios', 'PdfController@Generate_pdf_usuarios')->name('pdf.generate.usuarios');
     Route::get ('pdfgproductos', 'PdfController@Generate_pdf_productos')->name('pdf.generate.productos');
 
-
+     //EXCEL GENERATE
+     Route::get ('excelgmarcas', 'ExcelController@Generate_excel_marcas')->name('excel.generate.marcas');     //ME REDIRIGE AL CONTROLADOR DE GENERATE PDF
+     Route::get ('excelgmodelos', 'ExcelController@Generate_excel_modelos')->name('excel.generate.modelos');
+     Route::get ('excelgusuarios', 'ExcelController@Generate_excel_usuarios')->name('excel.generate.usuarios');
+     Route::get ('excelgproductos', 'ExcelController@Generate_excel_productos')->name('excel.generate.productos');
 });
  
 

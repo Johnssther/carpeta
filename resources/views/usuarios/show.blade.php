@@ -9,6 +9,7 @@
 
     @section('content')
 
+<!-- generar pdf -->
     <div class="container">
       <div class="row">
         <div class="col s12 card-panel teal blue darken-2">
@@ -32,6 +33,30 @@
      </div>
     </div>
 
+
+<!-- generar excel -->
+<div class="container">
+      <div class="row">
+        <div class="col s12 card-panel teal lime darken-2">
+        <div class="col s12 center-align">
+          <p>Generar Reportes EXCEL</p>
+        </div>
+        <div class="col s3">
+          <a class="link" href=" {{ route('excel.generate.marcas') }} ">EXCEL Generate MARCAS</a>
+        </div>
+        <div class="col s3">
+            <a class="link" href=" {{route('excel.generate.modelos')}} ">EXCEL Generate MODELOS</a>
+        </div>
+        <div class="col s3">
+        <a class="link" href="{{ route('excel.generate.usuarios') }}">EXCEL Generate USUARIOS</a>
+        </div>
+        <div class="col s3">
+            <a class="link" href="{{ route('excel.generate.productos') }}">EXCEL Generate PRODUCTOS</a>
+        </div>
+
+      </div>
+     </div>
+    </div>
 
 
     <div class="row ">
