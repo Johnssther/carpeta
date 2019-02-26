@@ -57,6 +57,7 @@ class UsuariosController extends Controller
             return 'Datos guardados';
         } catch (\Exception $e) {
             DB::rollback();
+            return redirect()->route('usuarios.create');
         }
 
         
@@ -74,7 +75,6 @@ class UsuariosController extends Controller
         $user = $usuario;
         return view('usuarios.example', ['user'=>$usuario]);
         return view('usuarios.show', ['user'=>$usuario]);
-
 
 
 

@@ -15,6 +15,14 @@ Route::group(['middleware'=>'auth'], function() {
     Route::resource ('modelos', 'Productos\ModelosController');  //MODELOS
     Route::resource ('productos', 'Productos\ProductosController');//PRODUCTOS
 
+    /*
+    SOLO ME TRAE UNA RUTA 
+    //Route::resource ('marcas', 'Productos\MarcasController', ['only' => 'index']); //MARCAS
+    
+    EXCEPCIONE DE RUTAS EN EL CONTROLER
+    //Route::resource ('productos', 'Productos\ProductosController', ['except' => ['update','destroy']]);//PRODUCTOS
+    */
+
     Route::get ('pdf', 'PdfController@Generate_pdf')->name('pdf.generate');     //ME REDIRIGE AL CONTROLADOR DE GENERATE PDF
 
     //PDF GENERATE

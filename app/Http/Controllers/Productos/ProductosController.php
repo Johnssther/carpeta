@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Productos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+
 use App\Models\Usuario;
 use App\Models\Marca;
 use App\Models\Modelo;
 use App\Models\Producto;
+
 
 use DB;
 
@@ -27,7 +29,6 @@ class ProductosController extends Controller
         ->join('<tabla_que_se_va_a_unir>', '<tabla_relacionada>.<campo_id>','=','<tabla_a_unir>.id')
 
         */ 
-
 
 
         $productos = Producto::select('productos.*', 'marcas.name as marca_nombre', 'modelos.name as modelo_nombre', 'usuarios.name as usuario_nombre')
@@ -50,7 +51,6 @@ class ProductosController extends Controller
     public function create()
     {
         return view('productos.create', ['usuarios'=>Usuario::get(), 'modelos'=>Modelo::get(), 'marcas'=>Marca::get()]);
-      //  return view('usuarios.create');
     }
 
     /**
@@ -79,6 +79,7 @@ class ProductosController extends Controller
 
         } catch (\Exception $e) {
             DB::rollback();
+            return redirect()->route('productos.create');
         }
         
     }

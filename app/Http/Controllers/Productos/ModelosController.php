@@ -53,6 +53,7 @@ class ModelosController extends Controller
             
         }catch(\Exception $e) {
             DB::rollback();
+            return redirect()->route('modelos.create');
         }
         
         

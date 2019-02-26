@@ -21,22 +21,16 @@
           <table class="centered">
             <thead>
               <tr>
-                  <th>#</th>
-                  <th>Nombre</th>
-                  <th>Apellido</th>
                   <th>Edad</th>
-                  <th>Dirección</th>
+                  <th>Cantidad</th>
               </tr>
             </thead>
     
             <tbody>
               @foreach ($usuarios as $usuario)
               <tr>
-                <td> {{ $usuario->id }} </td>
-                <td> {{ $usuario->name }} </td>
-                <td> {{ $usuario->surname }} </td>
-                <td> {{ $usuario->age }} </td>
-                <td> {{ $usuario->direction }} </td>
+                <td>Personas de {{ $usuario->age }} Años </td>
+                <td> {{ $usuario->cantidad }} </td>
                 
               </tr>
               @endforeach 

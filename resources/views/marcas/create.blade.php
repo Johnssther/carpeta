@@ -31,7 +31,7 @@
        
 
         <div >
-        <button class="btn-floating pulse" type="submit" name="action">
+        <button class="btn-floating pulse" type="submit" name="action" id="action">
                  <a class="btn-floating pulse"><i class="material-icons ">add</i></a>
             </button>
         </div>
@@ -41,5 +41,8 @@
 </form>  
 
 
-
-    @endsection
+<label class="switchBtn">
+    <input type="checkbox">
+    <div class="slide round">Ordenar A-Z</div>
+</label>
+@endsection

@@ -55,16 +55,21 @@ class PdfController extends Controller
 
     public function Generate_pdf_usuarios() {
 
-        $usuarios = Usuario::all();
+        $usuarioscant = DB::table('usuarios')
+                                ->select('age', DB::raw('COUNT(*) as cantidad'))
+                                ->orderBy('age', 'desc')
+                                ->groupBy('age') 
+                                ->get();
+                               
 
-        $pdf= \PDF::loadView('pdf_generate.pdfusuarios', ['usuarios'=>$usuarios]);
+        $pdf= \PDF::loadView('pdf_generate.pdfusuarios', ['usuarios'=>$usuarioscant]);
         return $pdf->download('Usuarios.pdf');
 
     }
 
     public function Generate_pdf_productos() {
 
-       // $productos = Producto::all();   
+       // $productos = Producto::all();
         $productos = Producto::select('productos.*', 'marcas.name as marca_nombre', 'modelos.name as modelo_nombre', 'usuarios.name as usuario_nombre')
                         ->join('marcas', 'productos.marca_id', '=' ,'marcas.id')
                         ->join('modelos', 'productos.modelo_id', '=' ,'modelos.id')

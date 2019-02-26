@@ -66,7 +66,7 @@
             </div>
 
             <div class="col s4 ">
-              <h5>Usuarios</h5>
+               <a href="{{route('usuarios.index')}}"><h5>  Usuarios</h5></a>{{-- KRFNGOREGNTUONHGRHGRÑLR --}}
               <table>
                 <thead>
                   <tr>

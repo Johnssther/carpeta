@@ -18,7 +18,7 @@ class UsuariosExport implements FromView, ShouldAutoSize
     public function view(): View
     {
 
-         $usuarios = DB::table('usuarios')->orderBy('age', 'asc')->get();
+         $usuarios = DB::table('usuarios')->orderBy('name', 'asc')->get();
  
         return view('excel_generate.excel_usuarios', [
             'usuarios' => $usuarios

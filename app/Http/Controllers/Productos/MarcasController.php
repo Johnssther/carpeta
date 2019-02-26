@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Productos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Marca;
+use Illuminate\Support\Facades\Session;
+
 
 use DB;
 
@@ -18,7 +20,11 @@ class MarcasController extends Controller
      */
     public function index()
     {
-       return view('marcas.show', ['marcas'=>Marca::get()]);
+         $marka = DB::table('marcas')->orderBy('id', 'desc')->first();
+
+
+        Session::flash('flash_message', "Marca: $marka->name. Registrada exitosamente!!!" );
+        return view('marcas.show', ['marcas'=>Marca::get()]);
     }
 
     /**
@@ -54,6 +60,7 @@ class MarcasController extends Controller
 
         }catch (\Exception $e) {
             DB::rollback();
+            return redirect()->route('marcas.create');
         }
 
        
