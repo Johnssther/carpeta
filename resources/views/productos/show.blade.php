@@ -74,9 +74,11 @@
                       </button> 
                     </td>
                     <td>
-                      <button class="waves-effect waves-light btn-small lime darken-2" type="submit">
-                          <i class="material-icons">remove_red_eye</i>
-                      </button> 
+                      <a href="{{ route('productos.show',['producto' => $producto->id]) }}">
+                        <button class="waves-effect waves-light btn-small lime darken-2">
+                            <i class="material-icons">remove_red_eye</i>
+                          </button> 
+                        </a>
                     </td>
                     
                        
