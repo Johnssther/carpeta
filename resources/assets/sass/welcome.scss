@@ -1,0 +1,54 @@
+ 
+/*  // Fonts
+ @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap"; 
+
+  */
+
+
+  
+
+
+  @import url("https://fonts.googleapis.com/css?family=Raleway:100,600");
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css");
+  @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+  /* NAV */
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    }
+
+    li {
+    float: left;
+    }
+
+    li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family:arial;
+    }
+
+    li a:hover:not(.active) {
+    background-color: #111;
+    }
+
+    .active {
+    background-color: #4CAF50;
+    }
+    h1 {
+        font-family:arial;
+    }
+

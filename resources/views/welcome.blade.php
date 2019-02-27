@@ -7,50 +7,10 @@
 
         <title>Laravel</title>
 
-
-        
         {{-- <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">--}}
+
+        <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
       
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
-
-        <style>
-         
-         
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                background-color: #333;
-                }
-
-                li {
-                float: left;
-                }
-
-                li a {
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-family:arial;
-                }
-
-                li a:hover:not(.active) {
-                background-color: #111;
-                }
-
-                .active {
-                background-color: #4CAF50;
-                }
-                h1 {
-                    font-family:arial;
-                }
-              
-        </style>
     </head>
     <body>
 
@@ -69,26 +29,23 @@
         </ul>
     </nav>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>    
-
-
-            <div class="containerr">
-                 @yield('content')
-            </div>
-       
-
-<script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
-
-
-
-
-
-
     
+    <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>    
+    
+    <div class="containerr">
+        @yield('content')
+    </div>
+    <h1>hola</h1>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+
+
+
+
 
 
     </body>

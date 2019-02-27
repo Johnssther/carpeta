@@ -13,7 +13,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
-    <link rel="stylesheet" href="../../assets/styles.css">
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -55,6 +54,8 @@
                 }
 </style>
 </head>
+
+
 <body>
 <div id="app">
     <nav>
@@ -68,7 +69,7 @@
                         <li><a href="{{ route('register') }}">Registrarse</a></li>
                         @else
 
-                            <li >               <!-- NOMBRE DE LA PERSONA QUE INGRESO -->
+                            <li>               <!-- NOMBRE DE LA PERSONA QUE INGRESO -->
                                 <a href="#"> {{ Auth::user()->name }}</a>
                             </li>
                             <li style="float:right"> <!-- SALE DEL SISTEMA -->

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Productos;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Session;
 
 use App\Models\Usuario;
 use App\Models\Marca;
@@ -92,7 +92,7 @@ class ProductosController extends Controller
      */
     public function show($id)
     {
-        return 'ESTOY DESDE EL CONTROLADOR SHOW.PRODUCTOS';
+        return 'controller show';
         
     }
 
@@ -130,15 +130,12 @@ class ProductosController extends Controller
      */
     public function destroy($id)
     {
-        return $id;
-        // $producto = Producto::find($id);
-        // $producto->delete();
-        // return back();
+         $producto = Producto::find($id);
+         $producto->delete();
+         Session::flash('message', "Registro Eliminado" );
+         return back();
 
 
-        /* $category = Category::findOrFail($request->category_id);
-        $category->delete();
-        return back();
- */
     }
 }
+

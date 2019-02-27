@@ -1,31 +1,38 @@
 
+
 @extends('welcome')
 
     @section('content')
 
+
+<div>
+    <div class="container">   
+        @if(Session::has('message'))
+          <div class="alert alert-danger" role="alert">
+            {{Session::get('message')}}
+          </div>
+        @endif
+</div>
+
+
 <div class="container">
     
         <h4>Productos</h4>
-   
-<!-- @if (@productos) -->
+
 
     <div class="row">
       
       
       
-      <a class="red-text modal-trigger right-align" href="#demo-modal">
-        <i class="material-icons prefix">clear</i>
-          </a>
+      
           {{--           <a class="red-text" href=" {{ route('productos.edit', ['producto' => $producto->id])}} "> <i class="material-icons prefix">create</i> </a>
           --}}          
           
           
           <table class="center-align">
-              ble class="centered">
               <thead>
                 <tr>
-                  @foreach ($productos as $producto)   
-                  <th colspan="5" class="center-align"><h1> Usuariossss Registrados</h1></th>
+                  <th colspan="5" class="center-align"><h4> Productos                                                                                    Registrados</h4></th>
                   
                 </tr>
                 <tr>
@@ -37,22 +44,49 @@
                   <th>Persona quien realizo</th>
                   <th>Producto Activo</th>
                   <th>Descripción</th>
+                  <th>Acciones</th>
                 </tr>
+                @foreach ($productos as $producto)   
                 <tr>
                   <td>{{ $producto->producto }}</td>
                   <td> {{ $producto->size }} </td>
                   <td> {{ $producto->marca_nombre }} </td>
                   <td> {{ $producto->modelo_nombre }} </td>
                   <td> {{ $producto->fechaElaboracion }} </td>
-              <td> {{ $producto->usuario_nombre }} </td>
-              <td> {{ $producto->estado ? 'SI' : 'NO' }} </td>
-              <td> {{ $producto->descripcion }} </td>
+                  <td> {{ $producto->usuario_nombre }} </td>
+                  <td> {{ $producto->estado ? 'SI' : 'NO' }} </td>
+                  <td>  {{ $producto->descripcion }}  </td>
+                  <td>
+
+                    
+                      
+                      <form action="{{ route('productos.destroy',['producto' => $producto->id])}}" method="POST" onsubmit="preventDefault();" >
+                          {{method_field('delete')}}
+                          {{csrf_field()}}
+                          <button class="waves-effect waves-light btn-small red darken-4" type="submit">
+                              <i class="material-icons">clear</i>
+                          </button> 
+                      </form>
+                    </td>
+                    <td>
+                      <button class="waves-effect waves-light btn-small teal" type="submit">
+                          <i class="material-icons">edit</i>
+                      </button> 
+                    </td>
+                    <td>
+                      <button class="waves-effect waves-light btn-small lime darken-2" type="submit">
+                          <i class="material-icons">remove_red_eye</i>
+                      </button> 
+                    </td>
+                    
+                       
+                  
+              
+              @endforeach
             </tr>
-            thead
          </table>
         
 
-    @endforeach
   </div>
    
         
@@ -67,7 +101,7 @@
 
  <!--  <a class="modal-trigger" href="#demo-modal">Ver</a> -->
 
-<div class="container">
+{{-- <div class="container">
   <div id="demo-modal" class="modal">
     <div class="modal-content">
       <form action="{{ route('productos.destroy',['producto' => $producto->id])}}" method="POST">
@@ -92,11 +126,7 @@ $(document).ready(function(){
     $('.modal').modal();
 })
 </script> 
-
-<!-- @else
-    todavia no hay datos
-@endif -->
-
+ --}}
 
 
 @endsection
