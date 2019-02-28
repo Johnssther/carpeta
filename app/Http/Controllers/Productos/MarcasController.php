@@ -20,8 +20,11 @@ class MarcasController extends Controller
      */
     public function index()
     {
-         $marka = DB::table('marcas')->orderBy('id', 'desc')->first();
-
+/*          $marka = DB::table('marcas')->orderBy('id', 'desc')->first();
+*/          $marka = DB::table('marcas')
+                                ->latest()
+                                ->first();
+ 
 
         Session::flash('flash_message', "Marca: $marka->name. Registrada exitosamente!!!" );
         return view('marcas.show', ['marcas'=>Marca::get()]);

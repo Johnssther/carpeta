@@ -1,5 +1,22 @@
 
+<style>
+    .inactivo {
+        background: red;
+        width: 30px;
+        color:white;
+        border-radius: 10px;
+        padding-left: 3px;
 
+    }
+    .activo {
+      background: green;
+        width: 30px;
+        color:white;
+        border-radius: 10px;
+        padding-left: 8px;
+
+    }
+</style>
 @extends('welcome')
 
     @section('content')
@@ -43,7 +60,6 @@
                   <th>Fecha de elaboración</th>
                   <th>Persona quien realizo</th>
                   <th>Producto Activo</th>
-                  <th>Descripción</th>
                   <th>Acciones</th>
                 </tr>
                 @foreach ($productos as $producto)   
@@ -54,12 +70,19 @@
                   <td> {{ $producto->modelo_nombre }} </td>
                   <td> {{ $producto->fechaElaboracion }} </td>
                   <td> {{ $producto->usuario_nombre }} </td>
-                  <td> {{ $producto->estado ? 'SI' : 'NO' }} </td>
-                  <td>  {{ $producto->descripcion }}  </td>
-                  <td>
+                  <td> 
+                    @if ($producto->estado===0)
+                      <p class="inactivo">NO</p>
+                    @endif  
 
-                    
-                      
+                    @if ($producto->estado===1)
+                      <p class="activo">SI</p>
+                    @endif
+                  </td>
+                 
+                  
+                  
+                  <td>
                       <form action="{{ route('productos.destroy',['producto' => $producto->id])}}" method="POST" onsubmit="preventDefault();" >
                           {{method_field('delete')}}
                           {{csrf_field()}}
@@ -69,9 +92,11 @@
                       </form>
                     </td>
                     <td>
-                      <button class="waves-effect waves-light btn-small teal" type="submit">
+                      <a href="{{ route('productos.edit',['producto' => $producto->id])}}">
+                        <button class="waves-effect waves-light btn-small teal" type="submit">
                           <i class="material-icons">edit</i>
-                      </button> 
+                        </button> 
+                      </a>
                     </td>
                     <td>
                       <a href="{{ route('productos.show',['producto' => $producto->id]) }}">

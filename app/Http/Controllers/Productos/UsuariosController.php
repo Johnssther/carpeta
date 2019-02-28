@@ -40,8 +40,12 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        
+        $data = $request->validate([
+            'name' => 'required|max:20',
+            ]);
+
+            
+            $data = $request->all();
         
         DB::beginTransaction();
         
@@ -60,6 +64,7 @@ class UsuariosController extends Controller
             return redirect()->route('usuarios.create');
         }
 
+      
         
     }
 

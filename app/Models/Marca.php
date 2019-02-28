@@ -8,7 +8,7 @@ class Marca extends Model
 {
     protected $table = 'marcas';
 
-    public $timestamp =  false;
+    public $timestamp =  true;
 
 
     protected $fillable = [

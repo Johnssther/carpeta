@@ -35,9 +35,9 @@ class ProductosController extends Controller
                         ->join('marcas', 'productos.marca_id', '=' ,'marcas.id')
                         ->join('modelos', 'productos.modelo_id', '=' ,'modelos.id')
                         ->join('usuarios', 'productos.personaElaboro_id','=','usuarios.id')
+                        ->orderBy('estado','desc')
                         ->get();
 
-                        //dd($productos);
                         
         return view('productos.show', ['productos'=>$productos]);
 
@@ -92,12 +92,16 @@ class ProductosController extends Controller
      */
     public function show($id)
     {
-        $producto = Producto::find($id);
-        
-        return view('productos.showWatch');
-        return view('productos.edit', ['producto' => $producto]);
+           $producto = Producto::select('productos.*','marcas.name as marca_nombre', 'modelos.name as modelo_nombre', 'usuarios.name as usuario_nombre')
+                    ->join('marcas', 'productos.marca_id', '=' ,'marcas.id')
+                    ->join('modelos', 'productos.modelo_id', '=' ,'modelos.id')
+                    ->join('usuarios', 'productos.personaElaboro_id','=','usuarios.id')
+                    ->get()->find($id);
 
-        
+
+                    return view('productos.showWatch', ['producto'=>$producto]); 
+
+
     }
 
     /**
@@ -108,10 +112,15 @@ class ProductosController extends Controller
      */
     public function edit($id)
     {
-        $producto = Producto::find($id);
-        
-        return view('productos.edit', ['producto' => $producto]);
-        return 'id para editar';
+        $producto = Producto::select('productos.*','marcas.name as marca_nombre', 'modelos.name as modelo_nombre', 'usuarios.name as usuario_nombre')
+        ->join('marcas', 'productos.marca_id', '=' ,'marcas.id')
+        ->join('modelos', 'productos.modelo_id', '=' ,'modelos.id')
+        ->join('usuarios', 'productos.personaElaboro_id','=','usuarios.id')
+        ->get()->find($id);
+
+
+        return view('productos.edit', ['producto' => $producto,'usuarios'=>Usuario::get(), 'modelos'=>Modelo::get(), 'marcas'=>Marca::get()]);
+
     }
 
     /**
@@ -123,7 +132,7 @@ class ProductosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return 'Estoy en el controlador update';
     }
 
     /**
