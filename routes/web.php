@@ -13,10 +13,16 @@ Route::group(['middleware'=>'auth'], function() {
     Route::resource ('usuarios','Productos\UsuariosController'); //USUARIOS
     Route::resource ('marcas', 'Productos\MarcasController'); //MARCAS
     Route::resource ('modelos', 'Productos\ModelosController');  //MODELOS
-    Route::resource ('productos', 'Productos\ProductosController');//PRODUCTOS
-                        
-    Route::post ('consultas',['as' => 'consultas', 'uses' => 'ConsultasController@consultas']);//PRODUCTOS/CONSULTAS
     
+    Route::prefix('productos')->name('productos.')->group(function() {
+        Route::get ('consultas/{identificador}', ['as' => 'consultas', 'uses' => 'Productos\ProductosController@consultas']);     //ME REDIRIGE AL CONTROLADOR DE GENERATE PD
+    });
+    Route::resource ('productos', 'Productos\ProductosController');//PRODUCTOS
+    
+                        
+  // Route::get ('consultas',['as' => 'productos.consultas', 'uses' => 'Productos\ProductosController@consultas']);//PRODUCTOS/CONSULTAS
+    // Route::get ('consultas', 'ConsultasController@consultas')->name('consultas');     //ME REDIRIGE AL CONTROLADOR DE GENERATE PDF
+
 
     /*
     SOLO ME TRAE UNA RUTA 

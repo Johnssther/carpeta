@@ -169,24 +169,41 @@ class ProductosController extends Controller
 
 
     }
-    public function consultas()
+    public function consultas($identificador)
     {
-        return 'Activos';
+        
+        
+         switch ($identificador) {
+                 case '1':
+                 return 'Primero los Activos';
+                 break;
+                 
+                 case '2':
+                     return 'Primero los Inactivos';
+                      break;
 
-        // switch ($identificador) {
-        //     case '1':
-        //         return 'Primero los activos';
-        //         break;
-            
-        //     case '1':
-        //         return 'Primero los activos';
-        //          break;
-            
-        //     default:
-        //         return 'error';
-        //         break;
-        // }
+                 case '3':
+                    return 'Producto A-Z';
+                      break;
 
+                case '4':
+                    return 'Modelo A-Z';
+                      break;
+
+                case '5':
+                    return 'Fecha antigua a la mas reciente';
+                      break;
+    
+                 default:
+                     return 'error';
+                     break;
+             }
+            return 'Activos';
+            
     }
 }
+
+
+
+
 

@@ -51,12 +51,12 @@
               <thead>
                 <tr>
                   <th colspan="5" class="center-align"><h4> Productos Registrados</h4></th>
-                   <a href="{{ route('consultas')}}">Primero los activos</a><br>
-                   
-
-                  <a href="">Producto A-Z</a>
-                  <a href=""></a>
-                  <a href=""></a>
+                    <p>Ordenar por</p>
+                    <a href="{{ route('productos.consultas',['producto' => 1]) }}">Primero los Activos</a><br>
+                    <a href="{{ route('productos.consultas',['producto' => 2]) }}">Primero los Inactivos</a><br>
+                    <a href="{{ route('productos.consultas',['producto' => 3]) }}">Producto A-Z</a><br>
+                    <a href="{{ route('productos.consultas',['producto' => 4]) }}">Modelo A-Z</a><br>
+                    <a href="{{ route('productos.consultas',['producto' => 5]) }}">Fecha antigua a la mas reciente</a>
                 </tr>
                 <tr>
                   <th>Producto</th>
