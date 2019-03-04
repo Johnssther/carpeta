@@ -41,6 +41,8 @@ class ProductosController extends Controller
                         
         return view('productos.show', ['productos'=>$productos]);
 
+    
+      
     }
 
     /**
@@ -113,10 +115,10 @@ class ProductosController extends Controller
     public function edit($id)
     {
         $producto = Producto::select('productos.*','marcas.name as marca_nombre', 'modelos.name as modelo_nombre', 'usuarios.name as usuario_nombre')
-        ->join('marcas', 'productos.marca_id', '=' ,'marcas.id')
-        ->join('modelos', 'productos.modelo_id', '=' ,'modelos.id')
-        ->join('usuarios', 'productos.personaElaboro_id','=','usuarios.id')
-        ->get()->find($id);
+                            ->join('marcas', 'productos.marca_id', '=' ,'marcas.id')
+                            ->join('modelos', 'productos.modelo_id', '=' ,'modelos.id')
+                            ->join('usuarios', 'productos.personaElaboro_id','=','usuarios.id')
+                            ->get()->find($id);
 
 
         return view('productos.edit', ['producto' => $producto,'usuarios'=>Usuario::get(), 'modelos'=>Modelo::get(), 'marcas'=>Marca::get()]);
@@ -132,7 +134,24 @@ class ProductosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return 'Estoy en el controlador update';
+        $data = $request->all();
+
+        try {
+            $producto = Producto::find($id);
+            $producto->fill($data);
+            $producto->estado = $rehquest->filled('estado');
+            $producto->update();
+            return redirect()->route('productos.index');
+            
+
+        } catch (\Exception $e) {
+            //throw $th;
+        }
+        return '<h1 style="font-family:arial;color:red">
+                    Lo Sentimos 😓 Ha Ocurrido un Error al intentar Guardar
+                    En la Base de Datos.
+                </h1>';
+        
     }
 
     /**
@@ -148,6 +167,25 @@ class ProductosController extends Controller
          Session::flash('message', "Registro Eliminado" );
          return back();
 
+
+    }
+    public function consultas()
+    {
+        return 'Activos';
+
+        // switch ($identificador) {
+        //     case '1':
+        //         return 'Primero los activos';
+        //         break;
+            
+        //     case '1':
+        //         return 'Primero los activos';
+        //          break;
+            
+        //     default:
+        //         return 'error';
+        //         break;
+        // }
 
     }
 }

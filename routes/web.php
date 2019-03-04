@@ -14,6 +14,9 @@ Route::group(['middleware'=>'auth'], function() {
     Route::resource ('marcas', 'Productos\MarcasController'); //MARCAS
     Route::resource ('modelos', 'Productos\ModelosController');  //MODELOS
     Route::resource ('productos', 'Productos\ProductosController');//PRODUCTOS
+                        
+    Route::post ('consultas',['as' => 'consultas', 'uses' => 'ConsultasController@consultas']);//PRODUCTOS/CONSULTAS
+    
 
     /*
     SOLO ME TRAE UNA RUTA 
@@ -24,6 +27,7 @@ Route::group(['middleware'=>'auth'], function() {
     */
 
     Route::get ('pdf', 'PdfController@Generate_pdf')->name('pdf.generate');     //ME REDIRIGE AL CONTROLADOR DE GENERATE PDF
+
 
     //PDF GENERATE
     Route::get ('pdfgmarcas', 'PdfController@Generate_pdf_marcas')->name('pdf.generate.marcas');     //ME REDIRIGE AL CONTROLADOR DE GENERATE PDF
@@ -36,6 +40,8 @@ Route::group(['middleware'=>'auth'], function() {
      Route::get ('excelgmodelos', 'ExcelController@Generate_excel_modelos')->name('excel.generate.modelos');
      Route::get ('excelgusuarios', 'ExcelController@Generate_excel_usuarios')->name('excel.generate.usuarios');
      Route::get ('excelgproductos', 'ExcelController@Generate_excel_productos')->name('excel.generate.productos');
+    
+    
 });
  
 

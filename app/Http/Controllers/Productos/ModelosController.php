@@ -67,7 +67,7 @@ class ModelosController extends Controller
      */
     public function show($id)
     {
-        //
+        return "Hola Mundo '$id'";
     }
 
     /**
@@ -78,7 +78,8 @@ class ModelosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $modelo = Modelo::find($id);
+        return view('modelos.edit', ['modelo' => $modelo]);
     }
 
     /**
@@ -90,7 +91,7 @@ class ModelosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return "Hola Mundo update '$id'";
     }
 
     /**

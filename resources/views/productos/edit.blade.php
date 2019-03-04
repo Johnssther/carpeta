@@ -25,16 +25,16 @@
         @extends('welcome')
     
     @section('content')
-    
+   
     <div class="container">
         <div class="row">
     
             <h4>Editar Producto</h4>
             
             <div class="container">
-            <form action=" {{ route('productos.update',['producto' => $producto->id]) }}" method="POST">
-                    
-                {{-- {{ csrf_field() }} --}}
+            <form action="{{ route('productos.update',['producto' => $producto->id])}}" method="POST">
+                    {{ csrf_field() }} 
+                <input name="_method" type="hidden" value="PATCH">
                 <div class="col-sm-2">
     
                     <div class="input-field col s6">
@@ -111,6 +111,7 @@
                     <button class="btn-floating pulse" type="submit" name="action">
                         <a class="btn-floating pulse"><i class="material-icons ">add</i></a>
                     </button>
+
     
                 </div>
             </form>  
@@ -118,11 +119,10 @@
     </div>
     
        
-    
-    
+
     
     @endsection
     
     
-    
+
     

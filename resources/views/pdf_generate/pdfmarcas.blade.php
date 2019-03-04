@@ -23,7 +23,7 @@
               <tr>
                   <th>#</th>
                   <th>Nombre</th>
-                  <th>Activa</th>
+                  <th>Estado</th>
                   <th>Fecha de Registro</th>
               </tr>
             </thead>
@@ -33,7 +33,7 @@
              <tr>
                 <td> {{ $marca->id }} </td>
                 <td> {{ $marca->name }} </td>
-                <td> {{ $marca->active ? 'SI' : 'NO'}} </td>
+                <td> {{ $marca->active ? 'ACTIVO' : 'INACTIVO'}} </td>
                 <td> {{ $marca->created_at }} </td>
               </tr>
               @endforeach

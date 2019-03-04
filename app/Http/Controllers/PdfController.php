@@ -35,7 +35,10 @@ class PdfController extends Controller
 
     public function Generate_pdf_marcas() {
 
-        $marcas = Marca::all();
+        $marcas = DB::table('marcas')
+                        ->orderBy('active','desc')
+                        ->orderBy('id','asc')
+                        ->get();
 
         $pdf = \PDF::loadView('pdf_generate.pdfmarcas',['marcas'=>$marcas]);
         return $pdf->download('Marcas.pdf');

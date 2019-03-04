@@ -42,6 +42,7 @@
       
       
       
+      
           {{--           <a class="red-text" href=" {{ route('productos.edit', ['producto' => $producto->id])}} "> <i class="material-icons prefix">create</i> </a>
           --}}          
           
@@ -49,8 +50,13 @@
           <table class="center-align">
               <thead>
                 <tr>
-                  <th colspan="5" class="center-align"><h4> Productos                                                                                    Registrados</h4></th>
-                  
+                  <th colspan="5" class="center-align"><h4> Productos Registrados</h4></th>
+                   <a href="{{ route('consultas')}}">Primero los activos</a><br>
+                   
+
+                  <a href="">Producto A-Z</a>
+                  <a href=""></a>
+                  <a href=""></a>
                 </tr>
                 <tr>
                   <th>Producto</th>
