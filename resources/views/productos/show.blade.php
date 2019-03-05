@@ -43,9 +43,9 @@
       
       
       
-          {{--           <a class="red-text" href=" {{ route('productos.edit', ['producto' => $producto->id])}} "> <i class="material-icons prefix">create</i> </a>
-          --}}          
-          
+      <!--     {{--           <a class="red-text" href=" {{ route('productos.edit', ['producto' => $producto->id])}} "> <i class="material-icons prefix">create</i> </a>
+          --}}  -->         
+   
           
           <table class="center-align">
               <thead>
@@ -58,6 +58,7 @@
                     <a href="{{ route('productos.consultas',['producto' => 4]) }}">Modelo A-Z</a><br>
                     <a href="{{ route('productos.consultas',['producto' => 5]) }}">Fecha antigua a la mas reciente</a>
                 </tr>
+               
                 <tr>
                   <th>Producto</th>
                   <th>Tamaño</th>

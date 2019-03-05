@@ -139,7 +139,7 @@ class ProductosController extends Controller
         try {
             $producto = Producto::find($id);
             $producto->fill($data);
-            $producto->estado = $rehquest->filled('estado');
+            $producto->estado = $request->filled('estado');
             $producto->update();
             return redirect()->route('productos.index');
             
@@ -175,24 +175,59 @@ class ProductosController extends Controller
         
          switch ($identificador) {
                  case '1':
-                 return 'Primero los Activos';
+                 $productos = Producto::select('productos.*', 'marcas.name as marca_nombre', 'modelos.name as modelo_nombre', 'usuarios.name as usuario_nombre')
+                                                ->join('marcas', 'productos.marca_id', '=' ,'marcas.id')
+                                                ->join('modelos', 'productos.modelo_id', '=' ,'modelos.id')
+                                                ->join('usuarios', 'productos.personaElaboro_id','=','usuarios.id')
+                                                ->orderBy('estado','desc')
+                                                ->get();
+
+                    return view('productos.show', ['productos'=>$productos]);
                  break;
                  
                  case '2':
-                     return 'Primero los Inactivos';
+                         $productos = Producto::select('productos.*', 'marcas.name as marca_nombre', 'modelos.name as modelo_nombre', 'usuarios.name as usuario_nombre')
+                                            ->join('marcas', 'productos.marca_id', '=' ,'marcas.id')
+                                            ->join('modelos', 'productos.modelo_id', '=' ,'modelos.id')
+                                            ->join('usuarios', 'productos.personaElaboro_id','=','usuarios.id')
+                                            ->orderBy('estado','asc')
+                                            ->get();
+
+                        return view('productos.show', ['productos'=>$productos]);
                       break;
 
                  case '3':
-                    return 'Producto A-Z';
+                 $productos = Producto::select('productos.*', 'marcas.name as marca_nombre', 'modelos.name as modelo_nombre', 'usuarios.name as usuario_nombre')
+                                            ->join('marcas', 'productos.marca_id', '=' ,'marcas.id')
+                                            ->join('modelos', 'productos.modelo_id', '=' ,'modelos.id')
+                                            ->join('usuarios', 'productos.personaElaboro_id','=','usuarios.id')
+                                            ->orderBy('producto','asc')
+                                            ->get();
+
+                        return view('productos.show', ['productos'=>$productos]);
                       break;
 
                 case '4':
-                    return 'Modelo A-Z';
+                $productos = Producto::select('productos.*', 'marcas.name as marca_nombre', 'modelos.name as modelo_nombre', 'usuarios.name as usuario_nombre')
+                                            ->join('marcas', 'productos.marca_id', '=' ,'marcas.id')
+                                            ->join('modelos', 'productos.modelo_id', '=' ,'modelos.id')
+                                            ->join('usuarios', 'productos.personaElaboro_id','=','usuarios.id')
+                                            ->orderBy('modelo_nombre','asc')
+                                            ->get();
+
+                        return view('productos.show', ['productos'=>$productos]);
                       break;
 
                 case '5':
-                    return 'Fecha antigua a la mas reciente';
-                      break;
+                $productos = Producto::select('productos.*', 'marcas.name as marca_nombre', 'modelos.name as modelo_nombre', 'usuarios.name as usuario_nombre')
+                                            ->join('marcas', 'productos.marca_id', '=' ,'marcas.id')
+                                            ->join('modelos', 'productos.modelo_id', '=' ,'modelos.id')
+                                            ->join('usuarios', 'productos.personaElaboro_id','=','usuarios.id')
+                                            ->orderBy('fechaElaboracion','asc')
+                                            ->get();
+
+return view('productos.show', ['productos'=>$productos]);
+break;
     
                  default:
                      return 'error';
